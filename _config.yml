@@ -17,7 +17,7 @@ title: CS125 Supplements
 email: xushangning@sjtu.edu.cn
 description: >- # this means to ignore newlines until "baseurl:"
   Some supplements for CS125 are stored here, which may hopefully be useful.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/cs125-supplements" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: xushangning
 

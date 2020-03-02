@@ -17,7 +17,7 @@ A compiler transforms your C++ source code into something that can be executed b
 
 Let's just put the problem of compiler aside and prepare the source code first. How to write C++ without Code::Blocks? I will be using my *favorite* text editor Notepad here:
 
-![](/assets/img/notepad.png)
+{{- '/assets/img/notepad.png' | relative_url -}})
 
 Save the file as `1.cpp` in `D:` and we are done here.
 
@@ -37,15 +37,15 @@ Now we will be adding the path (`D:\mingw64\bin`) of the compiler to `PATH` envi
 
 Search for "environ" or "环境变量" with the search button on the Task Bar and click on "编辑系统环境变量".
 
-![](/assets/img/search-for-env.png)
+{{- '/assets/img/search-for-env.png' | relative_url -}})
 
 Click on the "环境变量" button again on the pop-up menu, which leads us *again* to a new window. See `Path` under "xxx 的用户变量"? That's the one we're gonna change. Double-clicking on it leads us to the *final* window. I hope that you know how to add a new entry `D:\mingw64\bin` instantly with the buttons on the window. The following figure shows all the windows we've opened to change a single environment variable, for you to see if you've clicked the right buttons and opened the right windows. The added entry is highlighted with blue in the rightmost window.
 
-![](/assets/img/add-env.png)
+{{- '/assets/img/add-env.png' | relative_url -}})
 
 We've done all the preparation work and we're ready to use the compiler. To use the compiler, right-click on the Windows button (the one you use to open the Start Menu) and select PowerShell.
 
-![](/assets/img/open-powershell.png)
+{{- '/assets/img/open-powershell.png' | relative_url -}})
 
 For those unfamiliar with PowerShell, PowerShell is a so-called *terminal*, where the computer user interact with the computer using a text-only UI (instead of a GUI like File Explorer). The user type *commands* to do operations such as renaming and deleting files.
 
@@ -82,7 +82,7 @@ Finally
 
 You should see "Hello, World!" right in PowerShell. The following figure contains all steps in the PowerShell, so you can check if your output matches mine.
 
-![](/assets/img/compile-and-run-hello-world.png)
+{{- '/assets/img/compile-and-run-hello-world.png' | relative_url -}})
 
 The last remaining question is, how does Code::Blocks save you from all of these steps (including setup and running the compiler)? The installer for Code::Blocks bundles MinGW and a text editor, completes the setup work during installation and runs the compiler when you hit the "Run" button.
 
