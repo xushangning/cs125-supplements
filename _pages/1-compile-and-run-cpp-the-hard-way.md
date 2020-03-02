@@ -33,7 +33,7 @@ Both Dev-C++ and Code::Blocks have MinGW under the hood, and we will be using Mi
 
 Take a look at the files in the folder `D:\mingw64\bin` (or anywhere you've put the `mingw64` folder). There are lots of executable files in the folder. Our compiler for C++ is the executable called `g++.exe`.
 
-Now we will be adding the path (`D:\mingw64\bin`) of the compiler to `PATH` environment variable. To learn more about environment variables, you may take a look at [this question](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them). But you can also just blindly follow the steps here for now.
+To actually use the compiler, we will add the path (`D:\mingw64\bin`) of the compiler to `Path` environment variable. You are strongly advised to just blindly follow the steps here for now. We will explain what is the `Path` environment variable, and why we must add the path to the environment variable at the end of the tutorial.
 
 Search for "environ" or "环境变量" with the search button on the Task Bar and click on "编辑系统环境变量".
 
@@ -87,3 +87,30 @@ You should see "Hello, World!" right in PowerShell. The following figure contain
 The last remaining question is, how does Code::Blocks save you from all of these steps (including setup and running the compiler)? The installer for Code::Blocks bundles MinGW and a text editor, completes the setup work during installation and runs the compiler when you hit the "Run" button.
 
 Software like Dev-C++ and Code::Blocks is called IDE (Integrated Development Environment), which provides a near-complete environment for software development such as writing code and running programs. A common mistake for C++ newbies is to say,"I run my C++ program with Code::Blocks". If you previously believe that you can't write or run a C++ program without any IDE, you've made the same mistake here.
+
+## The Whats and Whys of `Path`
+
+Do you try to type `g++ -v` in the PowerShell *before* adding the path `D:\mingw64\bin` to the environment variable? Now that you've know how to add the path, it's high time to experiment: *delete* the path, save the settings, *close and reopen* PowerShell. Type `g++ -v` again. Do you see the errors?
+
+And now, type `D:\mingw64\bin\g++ -v` (that is, specify the full location/path of the `g++` executable). It works.
+
+Finally, *readd* the path, save the settings, *close and reopen* PowerShell and type `g++ -v`. It works again.
+
+Here lies the power of `Path`: If you look closely at all the contents of the `Path` variable (mine shown below),
+
+```
+%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
+C:\Program Files\Intel\WiFi\bin\
+C:\Program Files\Common Files\Intel\WirelessCommon\
+D:\mingw64\bin
+```
+
+these are simply a bunch of directories, which contain lots of *executables*. Together, they constitute the search path for PowerShell. Whenever you type and execute something like `g++` in PowerShell, PowerShell has no idea which `g++` executable you are referring to, so it searches in all the paths above to find one.
+
+To learn more about environment variables, you may take a look at [this question](https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them).
+
+Now you may be wondering, "I took the hassle of adding `D:\mingw64\bin`, only to save me from typing `g++ -v` instead of `D:\mingw64\bin\g++ -v`?" For the adventurous, *delete* `D:\mingw64\bin` in `Path` and *double-click* on `1.exe` (rather than run in PowerShell):
+
+![]({{- '/assets/img/no-cpp-dll.png' | relative_url -}})
+
+and that, is another story, which I advise you to discover for yourself.
