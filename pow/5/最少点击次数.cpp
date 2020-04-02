@@ -2,20 +2,20 @@
 //
 // The idea of the solution is very straightforward:
 //
-// If we fix the 1st row, starting from the 2nd row, for every extinguished light
+// If we fix the 1st row, starting from the 2nd row, for every unlit light
 //   in the previous row, we have to click the corresponding position in the next
 //   row to turn it on. After the operation is over, we can test whether all the
-//   lights in the last row are on to verify whether we've found a solution or not.
+//   lights in the last row are lit to verify whether we've found a solution or not.
 //
 // In light of this idea, we can try all the possibilities of the 1st row, and find
-//   the minimal clicking time among all the possible solutions.
+//   the minimal number of clicks among all the possible solutions.
 //
 
 #include <iostream>
 
 using namespace std;
 
-// encapsulate the action of fliping into a function, since we'll be using it many
+// encapsulate the action of flipping into a function, since we'll be using it many
 // times in main()
 void flip(bool lights[5][5], int i, int j)
 {
@@ -94,7 +94,6 @@ int main()
                         for (int j = 0; j < 5; ++j)
                             has_found &= lights_copy[4][j];
                         
-                        // update the minimal clicking time if a solution is obtained
                         if (has_found)
                             min_flip = min(flip_time, min_flip);
 
