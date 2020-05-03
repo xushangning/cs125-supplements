@@ -1,15 +1,3 @@
-#include <iostream>
-#include <cstdio>
-#include <cstring>
-using namespace std;
-
-int getdot(char* a) {
-    int ret = 0;
-    int lena = strlen(a);
-    while (ret < lena && a[ret] != '.') ++ret;
-    return ret;
-}
-
 void add_float(char* a, char* b, char* res) {
     int ta[260], tb[260], tc[260];
     int lena = strlen(a), lenb = strlen(b);
@@ -45,18 +33,4 @@ void add_float(char* a, char* b, char* res) {
     for (int i = 129; i <= rgt; ++i)
         res[lenr++] = char(tc[i]+'0');
     res[lenr] = '\0';
-}
-
-int main(int argc, char** argv)
-{
-#ifndef ONLINE_JUDGE
-	freopen(argv[1], "r", stdin);
-	freopen(argv[2], "w", stdout);
-#endif // ONLINE_JUDGE
-    char num1[128], num2[128], res[128];
-    cin >> num1;
-    cin >> num2;
-    add_float(num1, num2, res);
-    cout << res << endl;
-    return 0;
 }
